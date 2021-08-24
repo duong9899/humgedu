@@ -17,5 +17,43 @@ namespace BT2008
             InitializeComponent();
         }
 
+        int tongchan = 0, tongle = 0, tongdayso = 0;
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnTieptuc_Click(object sender, EventArgs e)
+        {
+            txtDayvuanhap.Text = "";
+            txtTongCacPT.Text = "";
+            txtTongChan.Text = "";
+            txtTongLe.Text = "";
+            tongchan = 0;
+            tongle = 0;
+            tongdayso = 0;
+        }
+
+        private void btnNhap_Click(object sender, EventArgs e)
+        {
+            int x = Convert.ToInt32(txtnhapso.Text);
+            txtDayvuanhap.Text += x.ToString() + " ";
+            if (x % 2 == 0)
+            {
+                tongchan += x;
+                txtTongChan.Text = tongchan.ToString();
+            }
+            else
+            {
+                tongle += x;
+                txtTongLe.Text = tongle.ToString();
+            }
+
+            tongdayso += x;
+            txtTongCacPT.Text = tongdayso.ToString();
+
+            txtnhapso.Clear();
+        }
     }
 }
